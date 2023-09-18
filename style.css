@@ -1,3 +1,6 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;700&family=Nunito&display=swap');
+
 html {
     box-sizing: border-box;
 }
@@ -8,7 +11,7 @@ body {
     overflow-y: hidden;
     display: flex;
     align-items: center;
-  
+    font-family: Nunito, sans-serif;
   }
   
   /* Video Background */
@@ -47,7 +50,7 @@ body {
     z-index: 2;
     display: flex;
     justify-content: center;
-  
+    background-color: rgba(255, 255, 255, 0.85);
   }
   
   .input-container {
@@ -80,9 +83,10 @@ body {
     border-radius: 20px;
     background: #fff;
     outline: none;
-  
+    font-family: Nunito, sans-serif;
   }
   
+
   /* Button */
   button {
     width: 100%;
@@ -97,8 +101,10 @@ body {
     outline: none;
   }
   
-  
-  
+  button:hover {
+    filter: brightness(110%);
+  }
+
   /* Countdown */
   ul {
     margin-left: -45px;
@@ -118,6 +124,7 @@ body {
     text-align: center;
   }
   
+
   /* Complete */
   .complete {
     position: relative;
@@ -139,6 +146,8 @@ body {
     }
   
     .container {
+      min-width: unset;
+      width: 95vw;
       min-height: 245px;
       padding: 20px;
       margin: 10px;
