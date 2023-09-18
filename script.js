@@ -106,8 +106,8 @@ function reset() {
     countdownDate = '';
     console.log('reset button pressed');
     localStorage.removeItem('countdown');
-    // Refresh the page
-    location.reload();
+    //Update countdown at reset
+    updateCountdown()
 }
 
 //restore the previous countdown on refresh
