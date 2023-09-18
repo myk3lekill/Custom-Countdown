@@ -13,6 +13,8 @@ let countdownDate = '';
 
 let countdownValue = Date;
 
+let countdownActive;
+
 const second = 1000;
 const minute = second * 60;
 const hour = minute * 60;
@@ -26,6 +28,8 @@ dateEl.setAttribute('min', today)
 
 //Populate Countdown
 function updateDom() {
+    //set interval to update countdown every 1 second
+countdownActive = setInterval(() => {
     const now = new Date().getTime();
     const distance = countdownValue - now;
     console.log('distance', distance);
@@ -47,6 +51,7 @@ function updateDom() {
     inputContainer.hidden = true;
     //Show countdown
     countdownEl.hidden = false;
+}, second)
 }
 
 //Take values from from input
@@ -55,11 +60,29 @@ function updateCountdown(e) {
     countdownTitle = e.srcElement[0].value;
     countdownDate = e.srcElement[1].value
     console.log(countdownTitle, countdownDate)
-    //Get the numbre version of current Date, update DOM
-    countdownValue = new Date(countdownDate).getTime(); //store the time between the countdownDate and 1st o1 1970
-    console.log('countdown value', countdownValue)
-    updateDom();
+    //Check for valid date
+    if (countdownDate === '') {
+        alert('Please select a date for the countdown');
+    } else {
+        //Get the numbre version of current Date, update DOM
+        countdownValue = new Date(countdownDate).getTime(); //store the time between the countdownDate and 1st o1 1970
+        console.log('countdown value', countdownValue)
+        updateDom();
+    }
+}
+
+//Reset all values
+function reset() {
+    //Hide countdown and show input
+    countdownEl.hidden = true;
+    inputContainer.hidden = false;
+    //Stop the countdown
+    clearInterval(countdownActive);
+    //Reset the values
+    countdownTitle = '';
+    countdownDate = '';
 }
 
 //Event Listeners
-countdownForm.addEventListener('submit', updateCountdown)
+countdownForm.addEventListener('submit', updateCountdown);
+countdownBtn.addEventListener('click', reset)
