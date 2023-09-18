@@ -16,7 +16,8 @@ body {
     position: fixed;
     right: 0;
     bottom: 0;
-  
+    width:100vw;
+    height: auto;
   }
   
   video {
@@ -30,7 +31,9 @@ body {
     position: fixed;
     left: 0;
     top: 0;
-  
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(255, 255, 255, 0.35);
   }
   
   /* Container */
@@ -125,16 +128,17 @@ body {
   /* Media Query: Large Smartphone (Vertical) */
   @media screen and (max-width: 600px) {
     .video-background {
-  
+      height: 100vh;
+      width: 100vw;
     }
     
     video {
-  
+      object-fit: cover;
+      object-position: 70%;
       margin-top: -1px;
     }
   
     .container {
-  
       min-height: 245px;
       padding: 20px;
       margin: 10px;
@@ -169,4 +173,3 @@ body {
       font-size: 40px;
     }
   }
-}
