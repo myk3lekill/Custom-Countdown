@@ -111,7 +111,7 @@ body {
   }
   
   li {
-  
+    display: inline-block;
     font-size: 30px;
     list-style-type: none;
     padding: 10px;
@@ -131,6 +131,34 @@ body {
     top: 60px;
   }
   
+  .complete-title {
+    animation: complete 4s infinite;
+  }
+
+  /* Animation Create */
+  @keyframes complete {
+    0% {
+      color: rgb(227, 12, 12);
+    }
+
+    25% {
+      color: rgb(227, 220, 12);
+    }
+
+    50% {
+      color: rgb(19, 227, 12);
+      transform: scale(1.5);
+    }
+
+    75% {
+      color: rgb(26, 12, 227);
+    }
+
+    100% {
+      color: rgb(227, 12, 188);
+    }
+  }
+
   
   /* Media Query: Large Smartphone (Vertical) */
   @media screen and (max-width: 600px) {
